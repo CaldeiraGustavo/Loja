@@ -24,5 +24,13 @@ namespace Loja
         {
             return 0;
         }
+
+        //metodo para calcular o valor liquido do produto
+        public double CalcularValorLiquido()
+        {
+            double valor = this.CalcularPrecoVendaProd() - this.CalcularImposto();
+
+            return valor;
+        }
     }
 }

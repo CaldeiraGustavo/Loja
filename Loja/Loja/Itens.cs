@@ -11,6 +11,15 @@ namespace Loja
         private Produto prod;
         private int quantidadeVendida;
 
+
+        public Itens(Produto produto, int quantidade_vendida)
+        {
+            this.prod = produto;
+            this.quantidadeVendida = quantidade_vendida;
+        }
+
+
+        //get e set do produto
         public Produto Prod
         {
             get
@@ -24,6 +33,8 @@ namespace Loja
             }
         }
 
+
+        //get e set da quantidade vendida
         public int QuantidadeVendida
         {
             get
