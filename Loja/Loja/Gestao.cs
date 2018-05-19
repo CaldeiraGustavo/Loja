@@ -11,5 +11,9 @@ namespace Loja
         private Vendas[] venda;
         private Estoque[] estoque;
 
+        public void getPrecoProduto()
+        {
+
+        }
     }
 }
