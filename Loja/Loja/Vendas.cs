@@ -46,12 +46,10 @@ namespace Loja
         }
 
 
-
-
         //construtor da classe recebe como parametro um vetor de itens
         public Vendas(Itens [] itens)
         {
-            this.itens = itens;
+            this.itens = itens;            
         }
 
 

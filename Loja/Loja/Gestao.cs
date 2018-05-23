@@ -9,7 +9,7 @@ namespace Loja
     class Gestao
     {
         private Vendas[] venda;
-        private Estoque[] estoque;       
+        private Estoque estoque;       
 
 
         public int ProdutoMaisVendUnid()
@@ -63,18 +63,29 @@ namespace Loja
             return 0;
         }
 
-        public void RealizarVenda(Itens[] itens)
+        public void RealizarVenda(Itens[] itens, int posição)
         {
-            //instancia a classe vendas, passando o vetor de itens em seu construtor
-            Vendas vendas = new Vendas(itens);
-
-           estoque[1].VerificaEstoque();
+            estoque.VerificaEstoque();
             //olhar isso ????
 
+            //depois de verificar o estoque, vê se a venda pode ser concluida.
+            if (true)
+            {
+                //instancia a classe vendas, passando o vetor de itens em seu construtor
+                Vendas vendas = new Vendas(itens);
 
+                //vetor de vendas da classe gestão recebe a nova venda
+                venda[posição] = vendas;
+            }
 
-            //vetor de vendas da classe gestão recebe a nova venda
-            venda[9] = vendas; // não sei ainda em qual posição passar      ????      
+            else
+            {
+                //retorna uma mensagem de erro (ainda não sei como)
+            }
+
+            estoque.VerificaEstoque();
+            //olhar isso ????
+
         }
 
         public void RegistrarPedidosEstoque()
@@ -98,7 +109,7 @@ namespace Loja
         }
 
         //get e set para o vetor de Estoque
-        public Estoque[] Estoque
+        public Estoque Estoque
         {
             get
             {

@@ -8,22 +8,18 @@ namespace Loja
 {
     class Estoque
     {
-        private Produto[] prod;
 
-        public Produto[] Prod
+        private Itens[] itens;
+        private PedidoEstoque[] pedido; // a cada vez que é feito um pedido de reposição 
+        //ele é guardado nesse vetor
+
+        public Itens[] Itens
         {
-            get
-            {
-                return prod;
-            }
-
-            set
-            {
-                prod = value;
-            }
+            get { return itens; }
+            set { itens = value; }
         }
 
-        public void RetirarEstoque(Produto P, int quantidade)
+        public void RetirarEstoque(Itens item)
         {
 
         }

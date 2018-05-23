@@ -11,7 +11,6 @@ namespace Loja
         private Produto prod;
         private int quantidadeVendida;
 
-
         public Itens(Produto produto, int quantidade_vendida)
         {
             this.prod = produto;

@@ -17,6 +17,14 @@ namespace Loja
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+
+
+            Gestao gestao = new Gestao();
+
+            gestao.RealizarVenda();
+
+
         }
     }
 }
