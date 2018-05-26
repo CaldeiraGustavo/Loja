@@ -24,7 +24,6 @@ namespace Loja
         {
             return this.CalcularImposto() + precoCusto;
         }
-
         //metodo para calcular o valor liquido do produto
         public double CalcularValorLiquido()
         {
