@@ -8,11 +8,10 @@ namespace Loja
 {
     class UtensilioDomestico : Produto
     {
-        private int porcentImposto;
+        private int porcentImposto = 25;
         protected override int getPorcentagemImposto()
         {
-            return 0;
+            return porcentImposto;
         }
-
     }
 }
