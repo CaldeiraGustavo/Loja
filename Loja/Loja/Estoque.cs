@@ -21,7 +21,7 @@ namespace Loja
 
         public void RetirarEstoque(Itens item)
         {
-
+            
         }
 
         public void GeraPedReposicaoEstoque(Produto P)
@@ -29,9 +29,13 @@ namespace Loja
 
         }
 
-        public void VerificaEstoque()
+        public void VerificaEstoque(Produto P)
         {
-
+            for(int i=0; i < itens.lenght; i++){
+                if(itens[i].prod.descricao == P.descricao){
+                    
+                }
+            }
         }
     }
 }

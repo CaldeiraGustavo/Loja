@@ -18,19 +18,17 @@ namespace Loja
 
         public double CalcularImposto()
         {
-            return 0;
+            return precoCusto * (getPorcentagemImposto()/100);
         }
         public double CalcularPrecoVendaProd()
         {
-            return 0;
+            return this.CalcularImposto() + precoCusto;
         }
 
         //metodo para calcular o valor liquido do produto
         public double CalcularValorLiquido()
         {
-            double valor = this.CalcularPrecoVendaProd() - this.CalcularImposto();
-
-            return valor;
+            return this.CalcularPrecoVendaProd() - this.CalcularImposto();
         }
     }
 }
