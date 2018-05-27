@@ -9,12 +9,12 @@ namespace Loja
     class Itens
     {
         private Produto prod;
-        private int quantidadeVendida;
+        private int quantidade;
 
-        public Itens(Produto produto, int quantidade_vendida)
+        public Itens(Produto produto, int quantidade)
         {
             this.prod = produto;
-            this.quantidadeVendida = quantidade_vendida;
+            this.quantidade = quantidade;
         }
 
 
@@ -33,17 +33,17 @@ namespace Loja
         }
 
 
-        //get e set da quantidade vendida
-        public int QuantidadeVendida
+        //get e set da quantidade 
+        public int Quantidade
         {
             get
             {
-                return quantidadeVendida;
+                return quantidade;
             }
 
             set
             {
-                quantidadeVendida = value;
+                quantidade = value;
             }
         }
     }
