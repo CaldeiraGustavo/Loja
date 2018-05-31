@@ -13,6 +13,15 @@ namespace Loja
         private int id;
         private int estoqueMinimo;
         private double precoCusto;
+        
+        public Produto(double margemLucro, string descricao, int id, int estoqueMinimo, double precoCusto){
+            this.double         = double;             
+            this.margemLucro    = margemLucro;
+            this.descricao      = descricao;
+            this.id             = id;
+            this.estoqueMinimo  = estoqueMinimo;
+            this.precoCusto     = precoCusto;
+        }
 
         protected abstract int getPorcentagemImposto();
 
