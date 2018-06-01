@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 namespace Loja
 {
     abstract class Produto
-    {
+    {        
+        private string nome;
+        private int categora; // 1,2,3,4
         private double margemLucro;
-        private string descricao;
-        private int id;
-        private int estoqueMinimo;
         private double precoCusto;
+        private int estoqueAtual;
+        private int estoqueMinimo;
         
-        public Produto(double margemLucro, string descricao, int id, int estoqueMinimo, double precoCusto){
+        
+        public Produto(string nome, int categora, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo)
+        {
             this.double         = double;             
             this.margemLucro    = margemLucro;
             this.descricao      = descricao;
@@ -22,6 +25,8 @@ namespace Loja
             this.estoqueMinimo  = estoqueMinimo;
             this.precoCusto     = precoCusto;
         }
+
+
 
         protected abstract int getPorcentagemImposto();
 
@@ -36,7 +41,14 @@ namespace Loja
         //metodo para calcular o valor liquido do produto
         public double CalcularValorLiquido()
         {
-            return this.CalcularPrecoVendaProd() - this.CalcularImposto();
+            return this.precoCusto * this.margemLucro;
+        }
+
+        public string Nome
+        {
+            get { return nome; }
+
+            set { nome = value; }
         }
     }
 }

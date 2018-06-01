@@ -13,7 +13,7 @@ namespace Loja
 
         public Itens(Produto produto, int quantidade)
         {
-            this.prod = produto;
+            this.prod = produto; 
             this.quantidade = quantidade;
         }
 
@@ -21,30 +21,17 @@ namespace Loja
         //get e set do produto
         public Produto Prod
         {
-            get
-            {
-                return prod;
-            }
+            get{return prod;}
 
-            set
-            {
-                prod = value;
-            }
+            set{prod = value;}
         }
-
 
         //get e set da quantidade 
         public int Quantidade
         {
-            get
-            {
-                return quantidade;
-            }
+            get{return quantidade;}
 
-            set
-            {
-                quantidade = value;
-            }
+            set{quantidade = value;}
         }
     }
 }

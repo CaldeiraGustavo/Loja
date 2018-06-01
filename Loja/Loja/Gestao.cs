@@ -9,8 +9,8 @@ namespace Loja
     class Gestao
     {
         private Vendas[] venda;
-        private Estoque estoque;       
-
+        private Estoque estoque;
+        private Produto[] produtos;
 
         public int ProdutoMaisVendUnid()
         {
@@ -55,38 +55,23 @@ namespace Loja
             return soma;
         }
         
-        //metodo que retorna um vetor de quantidades vendidas de cada produto
-        private int[] Quant_Prod_Vendido()
+        //pesquisar como implementar um dicionário
+        private IDictionary<string, int> Quant_Prod_Vendido()
         {
-            //??
 
-            return 0;
-        }
+            IDictionary<string, int> Dic_Produtos = new Dictionary<string, int>();            
 
-        public void RealizarVenda(Itens[] itens, int posição)
-        {
-            estoque.VerificaEstoque();
-            //olhar isso ????
-
-            //depois de verificar o estoque, vê se a venda pode ser concluida.
-            if (true)
+            //percore todo o vetor de vendas
+            for (int i = 0; i < venda.Length; i++)
             {
-                //instancia a classe vendas, passando o vetor de itens em seu construtor
-                Vendas vendas = new Vendas(itens);
-
-                //vetor de vendas da classe gestão recebe a nova venda
-                venda[posição] = vendas;
+                
+                venda[i].Quant_Prod_Vendido;     //tirar duvida          
+                                
             }
 
-            else
-            {
-                //retorna uma mensagem de erro (ainda não sei como)
-            }
-
-            estoque.VerificaEstoque();
-            //olhar isso ????
-
+            return Dic_Produtos;
         }
+        
 
         public void RegistrarPedidosEstoque()
         {
@@ -97,29 +82,25 @@ namespace Loja
         //get e set para o vetor de Vendas
         public Vendas[] Vendas
         {
-            get
-            {
-                return venda;
-            }
+            get{return venda;}
 
-            set
-            {
-                venda = value;
-            }
+            set{venda = value;}
         }
 
-        //get e set para o vetor de Estoque
+        //get e set para o Estoque
         public Estoque Estoque
         {
-            get
-            {
-                return estoque;
-            }
+            get{return estoque;}
 
-            set
-            {
-                estoque = value;
-            }
+            set{estoque = value;}
+        }
+
+        //get e set para o vetor de Produtos
+        public Produto [] Produtos
+        {
+            get { return produtos; }
+
+            set { produtos = value; }
         }
 
 

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Loja
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,12 +20,12 @@ namespace Loja
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-
-
             Gestao gestao = new Gestao();
 
-            gestao.RealizarVenda();
+            LeituraArquivos leitura = new LeituraArquivos();
 
+            gestao.Produtos = leitura.LeituraArquivoProduto();
+            gestao.Vendas = leitura.LeituraArquivoVendas();
 
         }
     }
