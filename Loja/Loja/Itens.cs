@@ -15,6 +15,8 @@ namespace Loja
         {
             this.prod = produto; 
             this.quantidade = quantidade;
+            //diminui a quantidade vendida do estoque atual
+            this.prod.EstoqueAtual -= quantidade;
         }
 
 

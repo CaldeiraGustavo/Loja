@@ -64,8 +64,8 @@ namespace Loja
         }
 
 
-            //construtor da classe 
-            public Vendas(int codigo_venda, int quantidade_produtos, Itens [] item)
+        //construtor da classe 
+        public Vendas(int codigo_venda, int quantidade_produtos, Itens [] item)
         {
             this.CodigoVenda = codigo_venda;
             this.Quantidade_Produtos = quantidade_produtos;
@@ -76,9 +76,9 @@ namespace Loja
         //get e set para o vetor de Itens
         public Itens[] Itens
         {
-            get{return itens;}
+            get{return this.itens;}
 
-            set{itens = value;}
+            set{this.itens = value;}
         }
 
 

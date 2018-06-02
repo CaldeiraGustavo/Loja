@@ -8,25 +8,21 @@ namespace Loja
 {
     abstract class Produto
     {        
-        private string nome;
-        private int categora; // 1,2,3,4
+        private string nome;        
         private double margemLucro;
         private double precoCusto;
         private int estoqueAtual;
         private int estoqueMinimo;
         
         
-        public Produto(string nome, int categora, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo)
+        public Produto(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo)
         {
-            this.double         = double;             
+            this.nome           = nome;
             this.margemLucro    = margemLucro;
-            this.descricao      = descricao;
-            this.id             = id;
+            this.estoqueAtual   = estoqueAtual;
             this.estoqueMinimo  = estoqueMinimo;
             this.precoCusto     = precoCusto;
         }
-
-
 
         protected abstract int getPorcentagemImposto();
 
@@ -36,8 +32,9 @@ namespace Loja
         }
         public double CalcularPrecoVendaProd()
         {
-            return this.CalcularImposto() + precoCusto;
+            return this.CalcularImposto() + this.CalcularValorLiquido() + precoCusto;
         }
+
         //metodo para calcular o valor liquido do produto
         public double CalcularValorLiquido()
         {
@@ -46,9 +43,16 @@ namespace Loja
 
         public string Nome
         {
-            get { return nome; }
+            get { return this.nome; }
 
-            set { nome = value; }
+            set { this.nome = value; }
+        }
+
+        public int EstoqueAtual
+        {
+            get { return this.estoqueAtual; }
+
+            set { this.estoqueAtual = value; }
         }
     }
 }

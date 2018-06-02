@@ -31,7 +31,7 @@ namespace Loja
 
         public void VerificaEstoque(Produto P)
         {
-            for(int i=0; i < itens.lenght; i++){
+            for(int i=0; i < itens.Length; i++){
                 if(itens[i].prod.descricao == P.descricao){
                     
                 }

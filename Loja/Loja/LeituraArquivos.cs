@@ -10,16 +10,19 @@ namespace Loja
     class LeituraArquivos
     {
         private Produto[] prod; // olhar depois
+        private int quantidade_vendas = 380;
+        private int quantidade_produtos = 40;
+        private String nomeArquivoVendas = @"Vendas.txt";
+        private String nomeArquivoProdutos = @"Produtos.txt";
 
-        public Produto [] LeituraArquivoProduto()
+        //lê o arquivo e retorna um vetor de produtos
+        public Produto[] LeituraArquivoProduto()
         {
-            Produto[] produtos = new Produto[40];
+            Produto[] produtos = new Produto[quantidade_produtos];
 
             String s;
             String[] aux;
-            int i;
-
-            String nomeArquivoProdutos = @"Produtos.txt";            
+            int i;                      
 
             StreamReader arquivoLeituraProdutos;
             
@@ -33,9 +36,24 @@ namespace Loja
                 while (s != null)
                 {
                     aux = s.Split(';');
-                   
-                    produtos[i] = new Comida(aux[0], int.Parse(aux[1]), double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
-                  
+
+                    //switch para descobrir qual classe filha de produto instanciar
+                    switch (int.Parse(aux[1]))
+                    {
+                        case 1:
+                            produtos[i] = new Bebida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                            break;
+                        case 2:
+                            produtos[i] = new Comida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                            break;
+                        case 3:
+                            produtos[i] = new MaterialEscritorio(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                            break;
+                        case 4:
+                            produtos[i] = new UtensilioDomestico(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                            break;
+                    }              
+                                      
                     s = arquivoLeituraProdutos.ReadLine();
                     i++;
                 }
@@ -43,21 +61,20 @@ namespace Loja
                 arquivoLeituraProdutos.Close();
 
             }
+            this.prod = produtos;
 
             return produtos;
-
         }
 
+        //lê o arquivo e retorna um vetor de vendas
         public Vendas[] LeituraArquivoVendas()
         {
-            Vendas[] vendas = new Vendas[380];
+            Vendas[] vendas = new Vendas[quantidade_vendas];
 
             String s;
-            String[] aux;
-            int i;
+            String[] aux, produtos;
+            int i;          
             
-            String nomeArquivoVendas = @"Vendas.txt";
-
             StreamReader arquivoLeituraVendas;
 
             if (File.Exists(nomeArquivoVendas))
@@ -71,9 +88,20 @@ namespace Loja
                 {
                     aux = s.Split(';');
 
-                    Itens item = new Itens(aux[2], int.Parse(aux[3]));
+                    //instancia um vetor de itens com a quantidade de produtos vendidos
+                    Itens[] itens = new Itens[int.Parse(aux[1])]; 
 
-                    vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), item);
+                    //leitura dos produtos da venda, lê a quantidade de linhas conforme a quantidade de produtos
+                    for (int c = 0; c < int.Parse(aux[1]); c++)
+                    {
+                        s = arquivoLeituraVendas.ReadLine();
+                        produtos = s.Split(';');
+
+                        //instancia um item passando o produto e a quantidade
+                        itens[c] = new Itens(this.Produto(produtos[0]), int.Parse(produtos[1]));
+                    }                    
+
+                    vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens);
 
                     s = arquivoLeituraVendas.ReadLine();
                     i++;
@@ -87,5 +115,20 @@ namespace Loja
 
         }
         
+        //metodo que recebe como parametro o nome e retorna o produto
+        private Produto Produto(string nome)
+        {          
+            //percore o vetor de produtos procurando pelo nome correspondente
+            for (int i = 0; i < prod.Length; i++)
+            {
+                if (nome == prod[i].Nome)
+                {
+                    return prod[i];
+                }
+            }
+
+            return prod[100];
+        }
+
     }
 }

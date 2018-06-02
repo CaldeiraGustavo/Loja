@@ -27,6 +27,8 @@ namespace Loja
             gestao.Produtos = leitura.LeituraArquivoProduto();
             gestao.Vendas = leitura.LeituraArquivoVendas();
 
+
+
         }
     }
 }
