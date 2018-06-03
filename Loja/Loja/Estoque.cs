@@ -6,31 +6,25 @@ using System.Threading.Tasks;
 
 namespace Loja
 {
-    class Estoque
+    static class Estoque
     {
 
-        private Itens[] itens;
+        private Produto[] prod;
         private PedidoEstoque[] pedido; // a cada vez que é feito um pedido de reposição 
+        private qtdPedidos=0;
         //ele é guardado nesse vetor
-
-        public Itens[] Itens
-        {
-            get { return itens; }
-            set { itens = value; }
-        }
 
         public void GeraPedReposicaoEstoque(Produto P)
         {
-
+            pedido[qtdPedidos] = new PedidoEstoque(P, false);
+            qtdPedidos++;
         }
-
-        public void VerificaEstoque(Produto P)
+        public Produto[] Prod
         {
-            for(int i=0; i < itens.Length; i++){
-                if(itens[i].prod.nome == P.nome){
-                    
-                }
-            }
+            get{return prod;}
+
+            set{prod = value;}
         }
+
     }
 }

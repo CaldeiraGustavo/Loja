@@ -8,8 +8,13 @@ namespace Loja
 {
     class PedidoEstoque
     {
-        private Itens item;
+        private Produto prod;
         private bool concluido;
+
+        public PedidoEstoque(Produto prod, bool concluido){
+            this.prod = prod;
+            this.concluido = concluido;
+        }
 
         public void AlterarStatus()
         {
