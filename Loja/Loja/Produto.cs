@@ -32,7 +32,7 @@ namespace Loja
         }
         public double CalcularPrecoVendaProd()
         {
-            return this.CalcularImposto() + this.CalcularValorLiquido() + precoCusto;
+            return this.CalcularImposto() + this.CalcularValorLiquido();
         }
 
         //metodo para calcular o valor liquido do produto

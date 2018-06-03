@@ -19,11 +19,6 @@ namespace Loja
             set { itens = value; }
         }
 
-        public void RetirarEstoque(Itens item)
-        {
-            
-        }
-
         public void GeraPedReposicaoEstoque(Produto P)
         {
 
@@ -32,7 +27,7 @@ namespace Loja
         public void VerificaEstoque(Produto P)
         {
             for(int i=0; i < itens.Length; i++){
-                if(itens[i].prod.descricao == P.descricao){
+                if(itens[i].prod.nome == P.nome){
                     
                 }
             }
