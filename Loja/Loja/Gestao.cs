@@ -12,9 +12,26 @@ namespace Loja
         private Estoque estoque;
         private Produto[] produtos;
 
-        public int ProdutoMaisVendUnid()
+        public string ProdutoMaisVendUnid()
         {
-            return 0;
+            int maior = 0;
+            string produto = "";
+
+            IDictionary<string, int> Dic_Temp = this.Quant_Prod_Vendido();
+
+            foreach (string key in Dic_Temp.Keys)
+            {
+                int val;
+                Dic_Temp.TryGetValue(key, out val);
+
+                if (val > maior)
+                {
+                    maior = val;
+                    produto = key;
+                }
+            }
+
+          return produto;
         }
 
         public int ProdutoMaiorFaturamento()
@@ -54,26 +71,43 @@ namespace Loja
 
             return soma;
         }
-        
-        //pesquisar como implementar um dicionário
+
+          //metodo para retornar um dicionario de todos os produtos contendo a quantidade vendida
         private IDictionary<string, int> Quant_Prod_Vendido()
         {
 
-            IDictionary<string, int> Dic_Produtos = new Dictionary<string, int>();            
+            IDictionary<string, int> Dic_Produtos = new Dictionary<string, int>();
 
             //percore todo o vetor de vendas
             for (int i = 0; i < venda.Length; i++)
             {
-                
-                venda[i].Quant_Prod_Vendido;     //tirar duvida          
-                                
+                IDictionary<string, int> Dic_Temp = venda[i].Quant_Prod_Vendido();
+                foreach (string key in Dic_Temp.Keys)
+                {
+                    int val;
+                    Dic_Temp.TryGetValue(key, out val);
+                    //se existe...
+                    if (Dic_Produtos.Keys.Any(x => x == key))
+                    {
+                      //o produto já existe no dicionário e sua quantidade será incrementada
+                      int oldVal;
+                      Dic_Produtos.TryGetValue(key, out oldVal);
+                      Dic_Produtos[key] = oldVal + val;
+                    }
+                    //se não existe..
+                    else
+                    {
+                      //o produto ainda não existe no dicionário e será adicionado
+                      Dic_Produtos.Add(key, val);
+                    }
+                }
             }
 
             return Dic_Produtos;
         }
-        
 
-        public void RegistrarPedidosEstoque()
+
+    public void RegistrarPedidosEstoque()
         {
             //??
         }
