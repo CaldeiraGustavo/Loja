@@ -21,10 +21,11 @@ namespace Loja
             Application.Run(new Form1());
 
             Gestao gestao = new Gestao();
-
+            Estoque estoque = new Estoque();
             LeituraArquivos leitura = new LeituraArquivos();
 
             gestao.Produtos = leitura.LeituraArquivoProduto();
+            estoque.setProduto(gestao.Produtos);
             gestao.Vendas = leitura.LeituraArquivoVendas();
 
 

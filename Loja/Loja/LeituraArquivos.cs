@@ -62,7 +62,6 @@ namespace Loja
 
             }
             this.prod = produtos;
-            Estoque.prod = produtos;
             return produtos;
         }
 

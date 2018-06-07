@@ -16,10 +16,11 @@ namespace Loja
             this.prod = produto; 
             this.quantidade = quantidade;
             //diminui a quantidade vendida do estoque atual
-            if(this.prod.EstoqueAtual - quantidade > 0){
-                this.prod.EstoqueAtual -= quantidade;
-                if(this.prod.EstoqueAtual < this.prod.estoqueMinimo){
-                    this.prod.GeraPedReposicaoEstoque(prod);
+            if(this.prod.getEstoqueAtual() - quantidade > 0){
+                this.prod.setEstoqueAtual(this.prod.getEstoqueAtual() - quantidade);
+                if(this.prod.getEstoqueAtual() < this.prod.getEstoqueMinimo())
+                {
+                    
                 }
             }
         }

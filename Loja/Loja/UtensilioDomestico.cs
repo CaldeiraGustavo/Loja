@@ -8,8 +8,9 @@ namespace Loja
 {
     class UtensilioDomestico : Produto
     {
-        public UtensilioDomestico() : base(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo){
-            if(margemLucro <= 0.1 || margemLucro >= 0.2){
+        public UtensilioDomestico(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo) : base(nome, margemLucro, precoCusto, estoqueAtual, estoqueMinimo)
+        {
+            if (margemLucro <= 0.1 || margemLucro >= 0.2){
                 margemLucro = 0.15;
             }
         }

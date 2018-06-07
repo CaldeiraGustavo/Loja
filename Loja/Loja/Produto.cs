@@ -41,18 +41,30 @@ namespace Loja
             return this.precoCusto * this.margemLucro;
         }
 
-        public string Nome
+        public void setNome(string nome)
         {
-            get { return this.nome; }
-
-            set { this.nome = value; }
+            this.nome = nome;
+        }
+        public string getNome()
+        {
+            return nome;
         }
 
-        public int EstoqueAtual
+        public void setEstoqueAtual(int estoque)
         {
-            get { return this.estoqueAtual; }
-
-            set { this.estoqueAtual = value; }
+            this.estoqueAtual = estoque;
+        }
+        public int getEstoqueAtual()
+        {
+            return estoqueAtual;
+        }
+        public void setEstoqueMinimo(int estoque)
+        {
+            this.estoqueMinimo = estoque;
+        }
+        public int getEstoqueMinimo()
+        {
+            return estoqueMinimo;
         }
     }
 }

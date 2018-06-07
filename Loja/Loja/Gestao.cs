@@ -122,13 +122,14 @@ namespace Loja
         }
 
         //get e set para o Estoque
-        public Estoque Estoque
+        public void setEstoque(Estoque estoque)
         {
-            get{return estoque;}
-
-            set{estoque = value;}
+            this.estoque = estoque;
         }
-
+        public Estoque getEstoque()
+        {
+            return estoque;
+        }
         //get e set para o vetor de Produtos
         public Produto [] Produtos
         {

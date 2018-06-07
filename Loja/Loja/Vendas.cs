@@ -56,7 +56,7 @@ namespace Loja
             //percore todo o vetor de itens adiconando ao dicionario o nome do produto e a quantidade vendida
             for (int i = 0; i < itens.Length; i++)
             {                
-                Dic_Produtos.Add(itens[i].Prod.Nome, itens[i].Quantidade);
+                Dic_Produtos.Add(itens[i].Prod.getNome(), itens[i].Quantidade);
             }
 
             return Dic_Produtos;
