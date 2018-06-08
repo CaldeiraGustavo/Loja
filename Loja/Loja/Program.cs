@@ -23,7 +23,7 @@ namespace Loja
             Gestao gestao = new Gestao();
             LeituraArquivos leitura = new LeituraArquivos();
 
-            gestao.addProdutosEstoque(leitura.LeituraArquivoProduto());
+            gestao.setEstoque(leitura.LeituraArquivoProduto());
             gestao.Vendas = leitura.LeituraArquivoVendas();
 
 

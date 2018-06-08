@@ -121,9 +121,9 @@ namespace Loja
         }
 
         //get e set para o Estoque
-        public void addProdutosEstoque(Produto[] produtos)
+        public void setEstoque(Estoque estoque)
         {
-            this.estoque.setProduto(produtos);
+            this.estoque = estoque;
         }
     }
 }

@@ -9,14 +9,14 @@ namespace Loja
 {
     class LeituraArquivos
     {
-        private Produto[] prod; // olhar depois
+        private Estoque estoque;
         private int quantidade_vendas = 380;
         private int quantidade_produtos = 40;
         private String nomeArquivoVendas = @"Vendas.txt";
         private String nomeArquivoProdutos = @"Produtos.txt";
 
         //lê o arquivo e retorna um vetor de produtos
-        public Produto[] LeituraArquivoProduto()
+        public Estoque LeituraArquivoProduto()
         {
             Produto[] produtos = new Produto[quantidade_produtos];
 
@@ -61,8 +61,8 @@ namespace Loja
                 arquivoLeituraProdutos.Close();
 
             }
-            this.prod = produtos;
-            return produtos;
+            estoque.setProduto(produtos);
+            return estoque;
         }
 
         //lê o arquivo e retorna um vetor de vendas
