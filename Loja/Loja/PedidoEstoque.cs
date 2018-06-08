@@ -13,24 +13,16 @@ namespace Loja
         private int Quantidade;
         private bool concluido;        
 
-        public PedidoEstoque(Produto prod, bool concluido){
-            this.prod = prod;
-            this.concluido = concluido;
-        }
-        public bool getConcluido()
-        {
-            return concluido;
+        public PedidoEstoque(Produto prod, int quantidade){
+            this.Prod = prod;
+            this.Quantidade1 = quantidade;
+            this.concluido = true;
+            this.ValorPedido1 = prod.PrecoCusto * quantidade;
+
         }
 
-        public void AlterarStatus()
-        {
-            if (concluido)
-            {
-                concluido = false;
-            }else
-            {
-                concluido = true;
-            }
-        }
-    }
+    public double ValorPedido1 { get => ValorPedido; set => ValorPedido = value; }
+    public int Quantidade1 { get => Quantidade; set => Quantidade = value; }
+    internal Produto Prod { get => prod; set => prod = value; }
+  }
 }

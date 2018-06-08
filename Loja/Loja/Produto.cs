@@ -13,15 +13,16 @@ namespace Loja
         private double precoCusto;
         private int estoqueAtual;
         private int estoqueMinimo;
-        
-        
-        public Produto(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo)
+
+    public double PrecoCusto { get => precoCusto; set => precoCusto = value; }
+
+    public Produto(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo)
         {
             this.nome           = nome;
             this.margemLucro    = margemLucro;
             this.estoqueAtual   = estoqueAtual;
             this.estoqueMinimo  = estoqueMinimo;
-            this.precoCusto     = precoCusto;
+            this.PrecoCusto     = precoCusto;
         }
 
         protected abstract int getPorcentagemImposto();
@@ -29,18 +30,18 @@ namespace Loja
         public double CalcularImposto()
         {
             //Imposto calculado em cima do preço de custo + valor liquido
-            return (this.precoCusto + this.CalcularValorLiquido())*(getPorcentagemImposto()/100);
+            return (this.PrecoCusto + this.CalcularValorLiquido())*(getPorcentagemImposto()/100);
         }
         public double CalcularPrecoVendaProd()
         {
             //Preço de venda calculado em cima da soma do PrecoCustom, Imposto e Lucro
-            return this.CalcularImposto() + this.CalcularValorLiquido() + this.precoCusto;
+            return this.CalcularImposto() + this.CalcularValorLiquido() + this.PrecoCusto;
         }
 
         //metodo para calcular o valor do lucro do produto
         public double CalcularValorLiquido()
         {
-            return this.precoCusto * this.margemLucro;
+            return this.PrecoCusto * this.margemLucro;
         }
 
         public void setNome(string nome)

@@ -102,12 +102,13 @@ namespace Loja
 
                         //faz o estoque do produto atual ser igual ao estoque antigo - a quantidade vendida
                         estoque.getProdutos()[indice].setEstoqueAtual(estoque.getProdutos()[indice].getEstoqueAtual() - int.Parse(produtos[1]));
-                        
+
+            
                         // verifica se precisa repor estoque daquele produto
-                        if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
+            if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
                         {
-                            estoque.GeraPedReposicaoEstoque(estoque.getProdutos()[indice]); //se precisar, gera o pedido de reposição
-                            estoque.reporEstoque(indice);                                  //depois o estoque atual vira o dobro do minimo
+                            //se precisar, gera o pedido de reposição
+                            estoque.reporEstoque(indice);                              
                         }
                     }                    
 
