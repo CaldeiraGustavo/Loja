@@ -15,6 +15,10 @@ namespace Loja
             this.prod = prod;
             this.concluido = concluido;
         }
+        public bool getConcluido()
+        {
+            return concluido;
+        }
 
         public void AlterarStatus()
         {

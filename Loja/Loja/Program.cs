@@ -21,7 +21,6 @@ namespace Loja
             Application.Run(new Form1());
 
             Gestao gestao = new Gestao();
-            Estoque estoque = new Estoque();
             LeituraArquivos leitura = new LeituraArquivos();
 
             gestao.addProdutosEstoque(leitura.LeituraArquivoProduto());

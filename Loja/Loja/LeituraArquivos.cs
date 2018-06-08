@@ -91,7 +91,7 @@ namespace Loja
                     Itens[] itens = new Itens[int.Parse(aux[1])]; 
 
                     //leitura dos produtos da venda, lê a quantidade de linhas conforme a quantidade de produtos
-                    for (int c = 0; c < int.Parse(aux[1]); c++)
+                    for (int c = 0; c < itens.Length; c++)
                     {
                         s = arquivoLeituraVendas.ReadLine();
                         produtos = s.Split(';');
