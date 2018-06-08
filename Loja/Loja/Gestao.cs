@@ -16,9 +16,9 @@ namespace Loja
             int maior = 0;
             string produto = "";
 
-            IDictionary<string, int> Dic_Temp = this.Quant_Prod_Vendido();
+            IDictionary<Produto, int> Dic_Temp = this.Quant_Prod_Vendido();
 
-            foreach (string key in Dic_Temp.Keys)
+            foreach (Produto key in Dic_Temp.Keys)
             {
                 int val;
                 Dic_Temp.TryGetValue(key, out val);
@@ -26,22 +26,64 @@ namespace Loja
                 if (val > maior)
                 {
                     maior = val;
-                    produto = key;
+                    produto = key.getNome();
                 }
             }
 
           return produto;
         }
 
-        public int ProdutoMaiorFaturamento()
+        public string ProdutoMaiorFaturamento()
         {
-            return 0;
+            double  maior = 0;
+            double temp = 0;
+            string produto = "";
+
+            IDictionary<Produto, int> Dic_Temp = this.Quant_Prod_Vendido();
+
+            foreach (Produto key in Dic_Temp.Keys)
+            {
+                int val;
+                Dic_Temp.TryGetValue(key, out val);
+
+                temp = val * key.CalcularPrecoVendaProd();
+
+                if (temp > maior)
+                {
+                    maior = temp;
+                    produto = key.getNome();
+                }
+            }
+
+            return produto;     
         }
 
-        public int ProdutoMaiorLucro()
-        {
-            return 0;
-        }
+        public string ProdutoMaiorLucro()
+        {      
+            double maior = 0;
+            double temp = 0;
+            string produto = "";
+
+            IDictionary<Produto, int> Dic_Temp = this.Quant_Prod_Vendido();
+
+            foreach (Produto key in Dic_Temp.Keys)
+            {
+                int val;
+                Dic_Temp.TryGetValue(key, out val);
+
+                temp = val * key.CalcularValorLiquido();
+
+                if (temp > maior)
+                {
+                  maior = temp;
+                  produto = key.getNome();
+                }
+            }        
+
+            return produto;
+
+          }
+      
 
         public double ValorBrutoFaturado()
         {
@@ -72,16 +114,16 @@ namespace Loja
         }
 
           //metodo para retornar um dicionario de todos os produtos contendo a quantidade vendida
-        private IDictionary<string, int> Quant_Prod_Vendido()
+        private IDictionary<Produto, int> Quant_Prod_Vendido()
         {
 
-            IDictionary<string, int> Dic_Produtos = new Dictionary<string, int>();
+            IDictionary<Produto, int> Dic_Produtos = new Dictionary<Produto, int>();
 
             //percore todo o vetor de vendas
             for (int i = 0; i < venda.Length; i++)
             {
-                IDictionary<string, int> Dic_Temp = venda[i].Quant_Prod_Vendido();
-                foreach (string key in Dic_Temp.Keys)
+                IDictionary<Produto, int> Dic_Temp = venda[i].Quant_Prod_Vendido();
+                foreach (Produto key in Dic_Temp.Keys)
                 {
                     int val;
                     Dic_Temp.TryGetValue(key, out val);
@@ -106,7 +148,7 @@ namespace Loja
         }
 
 
-    public void RegistrarPedidosEstoque()
+    public void ListarPedidosReposiçãoEstoque()
         {
             //??
         }

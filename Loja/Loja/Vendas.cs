@@ -48,15 +48,15 @@ namespace Loja
         }
 
         //metodo para retornar um dicionario de produtos contendo a quantidade vendida
-        public IDictionary<string, int> Quant_Prod_Vendido()
+        public IDictionary<Produto, int> Quant_Prod_Vendido()
         {
 
-            IDictionary<string, int> Dic_Produtos = new Dictionary<string, int>();            
+            IDictionary<Produto, int> Dic_Produtos = new Dictionary<Produto, int>();            
 
-            //percore todo o vetor de itens adiconando ao dicionario o nome do produto e a quantidade vendida
+            //percore todo o vetor de itens adiconando ao dicionario o produto e a quantidade vendida
             for (int i = 0; i < itens.Length; i++)
             {                
-                Dic_Produtos.Add(itens[i].Prod.getNome(), itens[i].Quantidade);
+                Dic_Produtos.Add(itens[i].Prod, itens[i].Quantidade);
             }
 
             return Dic_Produtos;

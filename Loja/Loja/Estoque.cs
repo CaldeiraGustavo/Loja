@@ -8,7 +8,6 @@ namespace Loja
 {
     class Estoque
     {
-
         private Produto[] prod;
         private PedidoEstoque[] pedido; // a cada vez que é feito um pedido de reposição 
         private int qtdPedidos; //ele é guardado nesse vetor
@@ -21,6 +20,7 @@ namespace Loja
         public void reporEstoque(int indice) // produto na posição do parametro vai ter seu estoque igual ao dobro do minimo
         { 
             prod[indice].setEstoqueAtual(prod[indice].getEstoqueMinimo()*2);
+            
         }
         public bool precisaReporEstoque(Produto p) // verifica se precisa repor o estoque
         {

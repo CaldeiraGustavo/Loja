@@ -9,7 +9,9 @@ namespace Loja
     class PedidoEstoque
     {
         private Produto prod;
-        private bool concluido;
+        private double ValorPedido;
+        private int Quantidade;
+        private bool concluido;        
 
         public PedidoEstoque(Produto prod, bool concluido){
             this.prod = prod;
