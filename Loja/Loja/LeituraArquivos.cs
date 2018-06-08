@@ -96,8 +96,15 @@ namespace Loja
                         s = arquivoLeituraVendas.ReadLine();
                         produtos = s.Split(';');
 
+                        int indice = this.indiceProduto(produtos[0]);
                         //instancia um item passando o produto e a quantidade
-                        itens[c] = new Itens(this.Produto(produtos[0]), int.Parse(produtos[1]));
+                        itens[c] = new Itens(estoque.getProduto()[indice], int.Parse(produtos[1]));
+
+                        if (estoque.precisaReporEstoque(estoque.getProduto()[indice])) // verifica se precisa repor estoque daquele produto
+                        {
+                            estoque.GeraPedReposicaoEstoque(estoque.getProduto()[indice]); //se precisar, gera o pedido de reposição
+                            estoque.reporEstoque(indice);                                  //depois o estoque atual vira o dobro do minimo
+                        }
                     }                    
 
                     vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens);
@@ -115,18 +122,17 @@ namespace Loja
         }
         
         //metodo que recebe como parametro o nome e retorna o produto
-        private Produto Produto(string nome)
+        private int indiceProduto(string nome)
         {          
             //percore o vetor de produtos procurando pelo nome correspondente
-            for (int i = 0; i < prod.Length; i++)
+            for (int i = 0; i < estoque.getProduto().Length; i++)
             {
-                if (nome == prod[i].getNome())
+                if (nome == estoque.getProduto()[i].getNome())
                 {
-                    return prod[i];
+                    return i;
                 }
             }
-
-            return prod[100];
+            return 0;
         }
 
     }

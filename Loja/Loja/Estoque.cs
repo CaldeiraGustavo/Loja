@@ -17,10 +17,10 @@ namespace Loja
         {
             pedido[qtdPedidos] = new PedidoEstoque(P, true);
             qtdPedidos++;
-            if (pedido[qtdPedidos].getConcluido()) // se for concluído, o estoque fica igual o dobro do estoque minimo
-            {
-                P.setEstoqueAtual(P.getEstoqueMinimo() * 2);
-            }
+        }
+        public void reporEstoque(int indice) // produto na posição do parametro vai ter seu estoque igual ao dobro do minimo
+        { 
+            prod[indice].setEstoqueAtual(prod[indice].getEstoqueMinimo()*2);
         }
         public bool precisaReporEstoque(Produto p) // verifica se precisa repor o estoque
         {
