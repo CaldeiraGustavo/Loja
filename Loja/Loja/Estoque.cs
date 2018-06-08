@@ -33,11 +33,11 @@ namespace Loja
             }
         }
         //set e get
-        public void setProduto(Produto[] prod)
+        public void setProdutos(Produto[] prod)
         {
             this.prod = prod;
         }
-        public Produto[] getProduto()
+        public Produto[] getProdutos()
         {
             return prod;
         }

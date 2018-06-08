@@ -61,7 +61,7 @@ namespace Loja
                 arquivoLeituraProdutos.Close();
 
             }
-            estoque.setProduto(produtos);
+            estoque.setProdutos(produtos);
             return estoque;
         }
 
@@ -98,11 +98,15 @@ namespace Loja
 
                         int indice = this.indiceProduto(produtos[0]);
                         //instancia um item passando o produto e a quantidade
-                        itens[c] = new Itens(estoque.getProduto()[indice], int.Parse(produtos[1]));
+                        itens[c] = new Itens(estoque.getProdutos()[indice], int.Parse(produtos[1]));
 
-                        if (estoque.precisaReporEstoque(estoque.getProduto()[indice])) // verifica se precisa repor estoque daquele produto
+                        //faz o estoque do produto atual ser igual ao estoque antigo - a quantidade vendida
+                        estoque.getProdutos()[indice].setEstoqueAtual(estoque.getProdutos()[indice].getEstoqueAtual() - int.Parse(produtos[1]));
+                        
+                        // verifica se precisa repor estoque daquele produto
+                        if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
                         {
-                            estoque.GeraPedReposicaoEstoque(estoque.getProduto()[indice]); //se precisar, gera o pedido de reposição
+                            estoque.GeraPedReposicaoEstoque(estoque.getProdutos()[indice]); //se precisar, gera o pedido de reposição
                             estoque.reporEstoque(indice);                                  //depois o estoque atual vira o dobro do minimo
                         }
                     }                    
@@ -125,9 +129,9 @@ namespace Loja
         private int indiceProduto(string nome)
         {          
             //percore o vetor de produtos procurando pelo nome correspondente
-            for (int i = 0; i < estoque.getProduto().Length; i++)
+            for (int i = 0; i < estoque.getProdutos().Length; i++)
             {
-                if (nome == estoque.getProduto()[i].getNome())
+                if (nome == estoque.getProdutos()[i].getNome())
                 {
                     return i;
                 }
