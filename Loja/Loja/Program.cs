@@ -24,8 +24,7 @@ namespace Loja
             Estoque estoque = new Estoque();
             LeituraArquivos leitura = new LeituraArquivos();
 
-            gestao.Produtos = leitura.LeituraArquivoProduto();
-            estoque.setProduto(gestao.Produtos);
+            gestao.addProdutosEstoque(leitura.LeituraArquivoProduto());
             gestao.Vendas = leitura.LeituraArquivoVendas();
 
 

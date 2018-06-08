@@ -120,7 +120,7 @@ namespace Loja
             //percore o vetor de produtos procurando pelo nome correspondente
             for (int i = 0; i < prod.Length; i++)
             {
-                if (nome == prod[i].Nome)
+                if (nome == prod[i].getNome())
                 {
                     return prod[i];
                 }

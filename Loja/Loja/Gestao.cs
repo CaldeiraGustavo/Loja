@@ -9,8 +9,7 @@ namespace Loja
     class Gestao
     {
         private Vendas[] venda;
-        private Estoque estoque;
-        private Produto[] produtos;
+        private Estoque estoque = new Estoque(); // dentro do estoque está o vetor de produtos
 
         public string ProdutoMaisVendUnid()
         {
@@ -122,22 +121,9 @@ namespace Loja
         }
 
         //get e set para o Estoque
-        public void setEstoque(Estoque estoque)
+        public void addProdutosEstoque(Produto[] produtos)
         {
-            this.estoque = estoque;
+            this.estoque.setProduto(produtos);
         }
-        public Estoque getEstoque()
-        {
-            return estoque;
-        }
-        //get e set para o vetor de Produtos
-        public Produto [] Produtos
-        {
-            get { return produtos; }
-
-            set { produtos = value; }
-        }
-
-
     }
 }
