@@ -105,10 +105,9 @@ namespace Loja
 
             
                         // verifica se precisa repor estoque daquele produto
-            if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
+                        if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
                         {
-                            //se precisar, gera o pedido de reposição
-                            estoque.reporEstoque(indice);                              
+                            estoque.reporEstoque(indice); //se precisar, gera o pedido de reposição
                         }
                     }                    
 

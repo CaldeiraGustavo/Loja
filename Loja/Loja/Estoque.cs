@@ -10,36 +10,33 @@ namespace Loja
     {
         private Produto[] prod;
         private PedidoEstoque[] pedido; // a cada vez que é feito um pedido de reposição 
-    private int qtdPedidos; //ele é guardado nesse vetor
+        private int qtdPedidos; //ele é guardado nesse vetor
 
-    public PedidoEstoque[] Pedido { get => pedido; set => pedido = value; }
+        public PedidoEstoque[] Pedido { get => pedido; set => pedido = value; }
 
-    public Estoque()
-    {
-      this.qtdPedidos = 0;
-    }
+        public Estoque()
+        {
+            this.qtdPedidos = 0;
+        }
         public void GeraPedReposicaoEstoque(Produto P, int quantidade)
         {
             Pedido[qtdPedidos] = new PedidoEstoque(P, quantidade);
             qtdPedidos++;
         }
+
         public void reporEstoque(int indice) // produto na posição do parametro vai ter seu estoque igual ao dobro do minimo
         {
-      int quantidade_repor = prod[indice].getEstoqueMinimo() * 2;
-
-      int quantidade_pedido = quantidade_repor - prod[indice].getEstoqueAtual();
-
-            prod[indice].setEstoqueAtual(prod[indice].getEstoqueMinimo()*2);
-
-      this.GeraPedReposicaoEstoque(prod[indice], quantidade_pedido );
+            int quantidade_repor = prod[indice].getEstoqueMinimo() * 2;
+            int quantidade_pedido = quantidade_repor - prod[indice].getEstoqueAtual();
             
+            prod[indice].setEstoqueAtual(quantidade_repor);
+            this.GeraPedReposicaoEstoque(prod[indice], quantidade_pedido );                
         }
         public bool precisaReporEstoque(Produto p) // verifica se precisa repor o estoque
         {
             if (p.getEstoqueAtual() < p.getEstoqueMinimo())
             {       
-
-                  return true;
+                return true;
             }else
             {
                 return false;
