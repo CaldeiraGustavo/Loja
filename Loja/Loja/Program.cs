@@ -21,8 +21,13 @@ namespace Loja
             gestao.setEstoque(leitura.LeituraArquivoProduto());
             gestao.Vendas = leitura.LeituraArquivoVendas();
 
-
-
+            //apenas pra mostrar o que tem que ser exibido, nao precisa ser necessariamente com console
+            Console.WriteLine(gestao.ProdutoMaisVendUnid());
+            Console.WriteLine(gestao.ProdutoMaiorFaturamento());
+            Console.WriteLine(gestao.ProdutoMaiorLucro());
+            Console.WriteLine(gestao.ValorBrutoFaturado());
+            Console.WriteLine(gestao.ValorLiquidoFaturado());
+            
         }
     }
 }

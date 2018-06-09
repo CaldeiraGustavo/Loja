@@ -15,7 +15,6 @@ namespace Loja
         {
             int maior = 0;
             string produto = "";
-
             IDictionary<Produto, int> Dic_Temp = this.Quant_Prod_Vendido();
 
             foreach (Produto key in Dic_Temp.Keys)
@@ -30,7 +29,7 @@ namespace Loja
                 }
             }
 
-          return produto;
+            return produto;
         }
 
         public string ProdutoMaiorFaturamento()
@@ -146,14 +145,6 @@ namespace Loja
 
             return Dic_Produtos;
         }
-
-
-    public void ListarPedidosReposiçãoEstoque()
-        {     
-      
-      //??
-        }
-
 
         //get e set para o vetor de Vendas
         public Vendas[] Vendas
