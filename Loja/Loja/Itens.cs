@@ -15,6 +15,9 @@ namespace Loja
         {
             this.prod = produto; 
             this.quantidade = quantidade;
+
+            
+
         }
 
 

@@ -11,18 +11,24 @@ namespace Loja
         private Produto prod;
         private double ValorPedido;
         private int Quantidade;
-        private bool concluido;        
+        private bool concluido;   
+        
 
-        public PedidoEstoque(Produto prod, int quantidade){
+        public PedidoEstoque(Produto prod, int quantidade)
+        {
             this.Prod = prod;
             this.Quantidade1 = quantidade;
             this.concluido = true;
             this.ValorPedido1 = prod.PrecoCusto * quantidade;
-
         }
 
-    public double ValorPedido1 { get => ValorPedido; set => ValorPedido = value; }
-    public int Quantidade1 { get => Quantidade; set => Quantidade = value; }
-    internal Produto Prod { get => prod; set => prod = value; }
-  }
+        public void ListarPedido()
+        {
+            Console.WriteLine("Produto: "+this.prod.getNome()+ "Quantidade: "+this.Quantidade+"Valor do Pedido: "+this.ValorPedido);
+        }
+
+        public double ValorPedido1 { get => ValorPedido; set => ValorPedido = value; }
+        public int Quantidade1 { get => Quantidade; set => Quantidade = value; }
+        internal Produto Prod { get => prod; set => prod = value; }
+    }
 }

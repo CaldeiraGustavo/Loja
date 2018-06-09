@@ -59,7 +59,6 @@ namespace Loja
                 }
                
                 arquivoLeituraProdutos.Close();
-
             }
             estoque.setProdutos(produtos);
             return estoque;
@@ -100,16 +99,8 @@ namespace Loja
                         //instancia um item passando o produto e a quantidade
                         itens[c] = new Itens(estoque.getProdutos()[indice], int.Parse(produtos[1]));
 
-                        //faz o estoque do produto atual ser igual ao estoque antigo - a quantidade vendida
-                        estoque.getProdutos()[indice].setEstoqueAtual(estoque.getProdutos()[indice].getEstoqueAtual() - int.Parse(produtos[1]));
-
-            
-                        // verifica se precisa repor estoque daquele produto
-            if (estoque.precisaReporEstoque(estoque.getProdutos()[indice])) 
-                        {
-                            //se precisar, gera o pedido de reposição
-                            estoque.reporEstoque(indice);                              
-                        }
+                        //chama o estoque passando o indice do produto e a quantidade vendida
+                        estoque.Ativar(indice, int.Parse(produtos[1]));
                     }                    
 
                     vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens);
@@ -126,7 +117,7 @@ namespace Loja
 
         }
         
-        //metodo que recebe como parametro o nome e retorna o produto
+        //metodo que recebe como parametro o nome e retorna o indice do produto no estoque
         private int indiceProduto(string nome)
         {          
             //percore o vetor de produtos procurando pelo nome correspondente

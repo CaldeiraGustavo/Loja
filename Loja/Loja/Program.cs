@@ -19,12 +19,14 @@ namespace Loja
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            Gestao gestao = new Gestao();
+            
             LeituraArquivos leitura = new LeituraArquivos();
 
-            gestao.setEstoque(leitura.LeituraArquivoProduto());
-            gestao.Vendas = leitura.LeituraArquivoVendas();
+            //instancia a classe gestão passando o vetor de vendas e o estoque
+            Gestao gestao = new Gestao(leitura.LeituraArquivoVendas(), leitura.LeituraArquivoProduto());
+
+           
+            
 
 
 

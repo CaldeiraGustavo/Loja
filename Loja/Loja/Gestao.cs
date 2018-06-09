@@ -11,6 +11,13 @@ namespace Loja
         private Vendas[] venda;
         private Estoque estoque = new Estoque(); // dentro do estoque está o vetor de produtos
 
+
+        public Gestao(Vendas[] vendas, Estoque estoque)
+        {
+            this.estoque = estoque;
+            this.venda = vendas;
+        }
+
         public string ProdutoMaisVendUnid()
         {
             int maior = 0;
@@ -148,10 +155,11 @@ namespace Loja
         }
 
 
-    public void ListarPedidosReposiçãoEstoque()
-        {     
+        public void ListarPedidosReposiçãoEstoque()
+        {
+
+            this.estoque.ListarPedidos();           
       
-      //??
         }
 
 
