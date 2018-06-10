@@ -8,11 +8,11 @@ namespace Loja
 {
     abstract class Produto
     {        
-        private string nome;        
-        private double margemLucro;
-        private double precoCusto;
-        private int estoqueAtual;
-        private int estoqueMinimo;
+        protected string nome;        
+        protected double margemLucro;
+        protected double precoCusto;
+        protected int estoqueAtual;
+        protected int estoqueMinimo;
 
     public double PrecoCusto { get => precoCusto; set => precoCusto = value; }
 
