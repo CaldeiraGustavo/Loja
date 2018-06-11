@@ -15,6 +15,10 @@ namespace Loja
         private String nomeArquivoVendas = @"Vendas.txt";
         private String nomeArquivoProdutos = @"Produtos.txt";
 
+        public LeituraArquivos(){
+            estoque = new Estoque();
+        }
+
         //lê o arquivo e retorna um vetor de produtos
         public Estoque LeituraArquivoProduto()
         {
