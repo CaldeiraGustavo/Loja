@@ -54,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 46);
+            this.button1.Location = new System.Drawing.Point(495, 34);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 175;
@@ -64,17 +64,17 @@
             // 
             // ProductList
             // 
-            this.ProductList.Location = new System.Drawing.Point(153, 67);
+            this.ProductList.Location = new System.Drawing.Point(12, 74);
             this.ProductList.Multiline = true;
             this.ProductList.Name = "ProductList";
-            this.ProductList.Size = new System.Drawing.Size(187, 124);
+            this.ProductList.Size = new System.Drawing.Size(558, 296);
             this.ProductList.TabIndex = 176;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 261);
+            this.ClientSize = new System.Drawing.Size(582, 382);
             this.Controls.Add(this.ProductList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblOpercao);
