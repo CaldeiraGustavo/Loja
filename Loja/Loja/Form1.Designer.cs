@@ -30,36 +30,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.lblOpercao = new System.Windows.Forms.Label();
-      this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.SuspendLayout();
-      // 
-      // lblOpercao
-      // 
-      this.lblOpercao.AutoSize = true;
-      this.lblOpercao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblOpercao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-      this.lblOpercao.Location = new System.Drawing.Point(182, 18);
-      this.lblOpercao.Name = "lblOpercao";
-      this.lblOpercao.Size = new System.Drawing.Size(147, 20);
-      this.lblOpercao.TabIndex = 173;
-      this.lblOpercao.Text = "Gestão de Vendas";
-      // 
-      // openFileDialog1
-      // 
-      this.openFileDialog1.FileName = "openFileDialog1";
-      this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-      // 
-      // Form1
-      // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(528, 261);
-      this.Controls.Add(this.lblOpercao);
-      this.Name = "Form1";
-      this.Text = "Form1";
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            this.lblOpercao = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ProductList = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // lblOpercao
+            // 
+            this.lblOpercao.AutoSize = true;
+            this.lblOpercao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpercao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblOpercao.Location = new System.Drawing.Point(182, 18);
+            this.lblOpercao.Name = "lblOpercao";
+            this.lblOpercao.Size = new System.Drawing.Size(147, 20);
+            this.lblOpercao.TabIndex = 173;
+            this.lblOpercao.Text = "Gestão de Vendas";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 175;
+            this.button1.Text = "Mostrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ProductList
+            // 
+            this.ProductList.Location = new System.Drawing.Point(153, 67);
+            this.ProductList.Multiline = true;
+            this.ProductList.Name = "ProductList";
+            this.ProductList.Size = new System.Drawing.Size(187, 124);
+            this.ProductList.TabIndex = 176;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(528, 261);
+            this.Controls.Add(this.ProductList);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblOpercao);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -67,6 +89,8 @@
 
     private System.Windows.Forms.Label lblOpercao;
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
-  }
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ProductList;
+    }
 }
 

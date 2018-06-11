@@ -49,12 +49,14 @@ namespace Loja
             }
         }
         
-        public void ListarPedidos()
+        public string ListarPedidos()
         {
+            string lista = "";
             for (int i = 0; i < Listapedidos.Count; i++)
             {
-              Listapedidos[i].ListarPedido();
+                lista += Listapedidos[i].ListarPedido();
             }
+            return lista;
         }
 
         //set e get

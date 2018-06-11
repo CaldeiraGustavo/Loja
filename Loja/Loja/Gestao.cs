@@ -175,5 +175,9 @@ namespace Loja
         {
             this.estoque = estoque;
         }
+        public Estoque getEstoque()
+        {
+            return this.estoque;
+        }
     }
 }
