@@ -9,13 +9,8 @@ namespace Loja
     class Estoque
     {
         private Produto[] prod;
-        private PedidoEstoque[] pedido; // a cada vez que é feito um pedido de reposição 
-        private int qtdPedidos; //ele é guardado nesse vetor      
-       
-        public Estoque()
-        {
-            this.qtdPedidos = 0;
-        }
+        private List<PedidoEstoque> Listapedidos = new List<PedidoEstoque>(); // a cada vez que é feito um pedido de reposição 
+                
 
         public void Ativar(int indice, int quantidade_vendida)
         {
@@ -24,13 +19,12 @@ namespace Loja
 
             //chama o metodo para verificar o estoque
             this.precisaReporEstoque(indice);
-
         }
 
-        public void GeraPedReposicaoEstoque(Produto P, int quantidade)
+        public void GeraPedReposicaoEstoque(int indice, int quantidade)
         {
-            Pedido[qtdPedidos] = new PedidoEstoque(P, quantidade);
-            qtdPedidos++;
+            PedidoEstoque temp = new PedidoEstoque(prod[indice], quantidade);
+            this.Listapedidos.Add(temp);
         }
 
         public void reporEstoque(int indice) // produto na posição do parametro vai ter seu estoque igual ao dobro do minimo
@@ -40,9 +34,9 @@ namespace Loja
             //quantidade pedida
             int quantidade_pedido = quantidade_repor - prod[indice].getEstoqueAtual();
             //gera o pedido de reposição
-            this.GeraPedReposicaoEstoque(prod[indice], quantidade_pedido);
+            this.GeraPedReposicaoEstoque(indice, quantidade_pedido);
             //repoe o estoque do produto
-            prod[indice].setEstoqueAtual(quantidade_repor);            
+            prod[indice].setEstoqueAtual(quantidade_repor);           
             
         }
 
@@ -57,9 +51,9 @@ namespace Loja
         
         public void ListarPedidos()
         {
-            for (int i = 0; i < pedido.Length; i++)
+            for (int i = 0; i < Listapedidos.Count; i++)
             {
-                pedido[i].ListarPedido();
+              Listapedidos[i].ListarPedido();
             }
         }
 
@@ -73,7 +67,7 @@ namespace Loja
             return prod;
         }
 
-        public PedidoEstoque[] Pedido { get => pedido; set => pedido = value; }
+        
 
     }
 }

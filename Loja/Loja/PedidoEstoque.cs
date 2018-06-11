@@ -11,8 +11,7 @@ namespace Loja
         private Produto prod;
         private double ValorPedido;
         private int Quantidade;
-        private bool concluido;   
-        
+        private bool concluido;           
 
         public PedidoEstoque(Produto prod, int quantidade)
         {
@@ -24,7 +23,7 @@ namespace Loja
 
         public void ListarPedido()
         {
-            Console.WriteLine("Produto: "+this.prod.getNome()+ "Quantidade: "+this.Quantidade+"Valor do Pedido: "+this.ValorPedido);
+            Console.WriteLine("Produto: " + this.prod.getNome() + "   Quantidade: " + this.Quantidade + "   Valor do Pedido: R$" + this.ValorPedido + "   Concluido: " + this.concluido);
         }
 
         public double ValorPedido1 { get => ValorPedido; set => ValorPedido = value; }

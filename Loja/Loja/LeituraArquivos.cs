@@ -12,10 +12,13 @@ namespace Loja
         private Estoque estoque;
         private int quantidade_vendas = 380;
         private int quantidade_produtos = 40;
-        private String nomeArquivoVendas = @"Vendas.txt";
-        private String nomeArquivoProdutos = @"Produtos.txt";
+        private String nomeArquivoVendas;
+        private String nomeArquivoProdutos;
 
-        public LeituraArquivos(){
+        public LeituraArquivos(String nomeArquivoProdutos, String nomeArquivoVendas)
+        {
+            this.nomeArquivoProdutos = nomeArquivoProdutos;
+            this.nomeArquivoVendas = nomeArquivoVendas;
             estoque = new Estoque();
         }
 

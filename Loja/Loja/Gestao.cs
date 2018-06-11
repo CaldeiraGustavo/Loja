@@ -9,10 +9,9 @@ namespace Loja
     class Gestao
     {
         private Vendas[] venda;
-        private Estoque estoque = new Estoque(); // dentro do estoque está o vetor de produtos
+        private Estoque estoque; // dentro do estoque está o vetor de produtos
 
-
-        public Gestao(Vendas[] vendas, Estoque estoque)
+        public Gestao(Estoque estoque, Vendas[] vendas)
         {
             this.estoque = estoque;
             this.venda = vendas;
