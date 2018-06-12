@@ -12,36 +12,34 @@ namespace Loja
 {
     public partial class Form1 : Form
     {
-          public Form1()
-          {
+        static LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\1094820\Downloads\Produtos.txt", @"C:\Users\1094820\Downloads\Vendas.txt");
+        //instancia a classe gestão passando o vetor de vendas e o estoque
+        Gestao gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
+        public Form1()
+        {
           InitializeComponent();
-          }    
-      
-    
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-      
-        }
-
-        private void ProductList_SelectedIndexChanged(object sender, EventArgs e)
-        {
             
-        }
-
+        }    
+      
         private void button1_Click(object sender, EventArgs e)
-        {
-            LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\1094820\Downloads\Produtos.txt", @"C:\Users\1094820\Downloads\Vendas.txt");
-            //instancia a classe gestão passando o vetor de vendas e o estoque
-            Gestao gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
-            
+        {            
             ProductList.Text = gestao.getEstoque().ListarPedidos();
             ProductList.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ProductList.Text = gestao.ProdutoMaisVendUnid();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProductList.Text = gestao.ProdutoMaiorFaturamento();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProductList.Text = gestao.ProdutoMaiorLucro();
         }
     }
 }
