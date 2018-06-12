@@ -74,6 +74,11 @@ namespace Loja
                 throw ex;
             }
 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
             estoque.setProdutos(produtos);
             return estoque;
         }

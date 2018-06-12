@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Loja
 {
-    public partial class Form1 : Form
-    {
-        static LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\sarah.campos\Downloads\POO_vendas\POOprodutos.txt", @"C:\Users\sarah.campos\Downloads\POO_vendas\POOvendas.txt");
-        //instancia a classe gestão passando o vetor de vendas e o estoque
+  public partial class Form1 : Form
+  {
+        static LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\sarah.campos\Downloads\POO_vendas\POOprod8utos.txt", @"C:\Users\sarah.campos\Downloads\POO_vendas\POOvendas.txt");
+        //instancia a classe gestão passando o vetor de vendas e o estoque         
+    
         Gestao gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
+
         public Form1()
         {
-          InitializeComponent();
-            
+            InitializeComponent();           
+
         }    
       
         private void button1_Click(object sender, EventArgs e)
