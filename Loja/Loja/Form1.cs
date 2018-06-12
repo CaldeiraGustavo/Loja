@@ -12,7 +12,7 @@ namespace Loja
 {
     public partial class Form1 : Form
     {
-        static LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\1094820\Downloads\Produtos.txt", @"C:\Users\1094820\Downloads\Vendas.txt");
+        static LeituraArquivos leitura = new LeituraArquivos(@"C:\Users\sarah.campos\Downloads\POO_vendas\POOprodutos.txt", @"C:\Users\sarah.campos\Downloads\POO_vendas\POOvendas.txt");
         //instancia a classe gestão passando o vetor de vendas e o estoque
         Gestao gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
         public Form1()
@@ -40,6 +40,16 @@ namespace Loja
         private void button2_Click(object sender, EventArgs e)
         {
             ProductList.Text = gestao.ProdutoMaiorLucro();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ProductList.Text = gestao.ValorLiquidoFaturado().ToString("c");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProductList.Text = gestao.ValorBrutoFaturado().ToString("c");
         }
     }
 }

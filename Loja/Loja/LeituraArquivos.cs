@@ -33,7 +33,7 @@ namespace Loja
 
             StreamReader arquivoLeituraProdutos;
             
-            if (File.Exists(nomeArquivoProdutos))
+            try
             {
                 arquivoLeituraProdutos = new StreamReader(nomeArquivoProdutos);
                 
@@ -42,31 +42,38 @@ namespace Loja
                
                 while (s != null)
                 {
-                    aux = s.Split(';');
+                    aux = s.Split(';');                    
 
-                    //switch para descobrir qual classe filha de produto instanciar
-                    switch (int.Parse(aux[1]))
-                    {
-                        case 1:
-                            produtos[i] = new Bebida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
-                            break;
-                        case 2:
-                            produtos[i] = new Comida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
-                            break;
-                        case 3:
-                            produtos[i] = new MaterialEscritorio(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
-                            break;
-                        case 4:
-                            produtos[i] = new UtensilioDomestico(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
-                            break;
-                    }              
-                                      
+                      //switch para descobrir qual classe filha de produto instanciar
+                        switch (int.Parse(aux[1]))
+                        {
+                            case 1:
+                              produtos[i] = new Bebida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                              break;
+                            case 2:
+                              produtos[i] = new Comida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                              break;
+                            case 3:
+                              produtos[i] = new MaterialEscritorio(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                              break;
+                            case 4:
+                              produtos[i] = new UtensilioDomestico(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+                              break;
+                        }                   
+
+
                     s = arquivoLeituraProdutos.ReadLine();
                     i++;
                 }
                
                 arquivoLeituraProdutos.Close();
             }
+
+            catch (FileNotFoundException ex)
+            {
+                throw ex;
+            }
+
             estoque.setProdutos(produtos);
             return estoque;
         }

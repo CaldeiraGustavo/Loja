@@ -23,7 +23,7 @@ namespace Loja
 
         public string ListarPedido()
         {
-            return "Produto: " + this.prod.getNome() + "   Quantidade: " + this.Quantidade + "   Valor do Pedido: R$" + this.ValorPedido + "   Concluido: " + this.concluido + "\n";
+            return "Produto: " + this.prod.getNome() + "   Quantidade: " + this.Quantidade + "   Valor do Pedido: " + this.ValorPedido.ToString("c") + "   Concluido!  \n";
         }
         
     }
