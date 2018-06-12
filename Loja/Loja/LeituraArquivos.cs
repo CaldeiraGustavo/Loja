@@ -94,7 +94,7 @@ namespace Loja
             
             StreamReader arquivoLeituraVendas;
 
-            if (File.Exists(nomeArquivoVendas))
+            try
             {
                 arquivoLeituraVendas = new StreamReader(nomeArquivoVendas);
 
@@ -106,7 +106,7 @@ namespace Loja
                     aux = s.Split(';');
 
                     //instancia um vetor de itens com a quantidade de produtos vendidos
-                    Itens[] itens = new Itens[int.Parse(aux[1])]; 
+                    Itens[] itens = new Itens[int.Parse(aux[1])];
 
                     //leitura dos produtos da venda, lê a quantidade de linhas conforme a quantidade de produtos
                     for (int c = 0; c < itens.Length; c++)
@@ -120,20 +120,28 @@ namespace Loja
 
                         //chama o estoque passando o indice do produto e a quantidade vendida
                         estoque.Ativar(indice, int.Parse(produtos[1]));
-                    }                    
+                    }
 
                     vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens);
 
                     s = arquivoLeituraVendas.ReadLine();
                     i++;
                 }
-
-                arquivoLeituraVendas.Close();
-
             }
 
-            return vendas;
+            catch (FileNotFoundException ex)
+            {
+                throw ex;
+            }
 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+                arquivoLeituraVendas.Close();
+            
+            return vendas;
         }
         
         //metodo que recebe como parametro o nome e retorna o indice do produto no estoque
