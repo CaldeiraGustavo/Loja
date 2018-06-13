@@ -62,7 +62,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(644, 45);
+            this.button1.Location = new System.Drawing.Point(1021, 45);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 23);
             this.button1.TabIndex = 175;
@@ -75,13 +75,13 @@
             this.ProductList.Location = new System.Drawing.Point(13, 74);
             this.ProductList.Multiline = true;
             this.ProductList.Name = "ProductList";
-            this.ProductList.Size = new System.Drawing.Size(744, 367);
+            this.ProductList.Size = new System.Drawing.Size(1121, 477);
             this.ProductList.TabIndex = 176;
             this.ProductList.Visible = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(289, 45);
+            this.button2.Location = new System.Drawing.Point(414, 45);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 23);
             this.button2.TabIndex = 177;
@@ -91,7 +91,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(139, 45);
+            this.button3.Location = new System.Drawing.Point(195, 45);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(144, 23);
             this.button3.TabIndex = 178;
@@ -111,7 +111,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(412, 45);
+            this.button5.Location = new System.Drawing.Point(629, 45);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(114, 23);
             this.button5.TabIndex = 180;
@@ -121,7 +121,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(532, 45);
+            this.button6.Location = new System.Drawing.Point(837, 45);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(105, 23);
             this.button6.TabIndex = 181;
@@ -148,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Loja.Properties.Resources._69036_gestao_de_vendas_utilizando_o_g_suite_para_vender_mais_1144x563;
-            this.ClientSize = new System.Drawing.Size(769, 453);
+            this.ClientSize = new System.Drawing.Size(1146, 563);
             this.Controls.Add(this.txtrep);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);

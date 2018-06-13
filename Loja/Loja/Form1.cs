@@ -35,7 +35,6 @@ namespace Loja
             ProductList.Visible = true;
             txtrep.Visible = false;
             ProductList.Text = gestao.getEstoque().ListarPedidos();
-            ProductList.Refresh();
         }
 
         private void button4_Click(object sender, EventArgs e)
