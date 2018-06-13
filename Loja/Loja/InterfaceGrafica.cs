@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Loja
 {
-  public partial class Form1 : Form
+  public partial class InterfaceGrafica : Form
   {
         static LeituraArquivos leitura;
         //instancia a classe gestão passando o vetor de vendas e o estoque         
 
         Gestao gestao; 
 
-        public Form1()
+        public InterfaceGrafica()
         {
             InitializeComponent();
             MessageBox.Show("Selecione o arquivo de produtos");

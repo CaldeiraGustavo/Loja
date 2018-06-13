@@ -1,6 +1,6 @@
 ﻿namespace Loja
 {
-    partial class Form1
+    partial class InterfaceGrafica
     {
         /// <summary>
         /// Required designer variable.
@@ -46,10 +46,10 @@
             // lblOpercao
             // 
             this.lblOpercao.AutoSize = true;
-            this.lblOpercao.BackColor = System.Drawing.SystemColors.Window;
+            this.lblOpercao.BackColor = System.Drawing.Color.AliceBlue;
             this.lblOpercao.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpercao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOpercao.Location = new System.Drawing.Point(255, 9);
+            this.lblOpercao.Location = new System.Drawing.Point(409, 9);
             this.lblOpercao.Name = "lblOpercao";
             this.lblOpercao.Size = new System.Drawing.Size(236, 30);
             this.lblOpercao.TabIndex = 173;
@@ -143,7 +143,7 @@
             this.txtrep.TabIndex = 182;
             this.txtrep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form1
+            // InterfaceGrafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +158,7 @@
             this.Controls.Add(this.ProductList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblOpercao);
-            this.Name = "Form1";
+            this.Name = "InterfaceGrafica";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

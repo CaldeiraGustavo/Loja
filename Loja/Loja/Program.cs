@@ -22,7 +22,7 @@ namespace Loja
 
             try
             {
-                Application.Run(new Form1());
+                Application.Run(new InterfaceGrafica());
             }
             catch (FileNotFoundException)
             {
