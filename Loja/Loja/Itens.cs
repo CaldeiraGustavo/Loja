@@ -6,35 +6,32 @@ using System.Threading.Tasks;
 
 namespace Loja
 {
-    class Itens
+  class Itens
+  {
+    private Produto prod;
+    private int quantidade;
+
+    public Itens(Produto produto, int quantidade)
     {
-        private Produto prod;
-        private int quantidade;
-
-        public Itens(Produto produto, int quantidade)
-        {
-            this.prod = produto; 
-            this.quantidade = quantidade;
-
-            
-
-        }
-
-
-        //get e set do produto
-        public Produto Prod
-        {
-            get{return prod;}
-
-            set{prod = value;}
-        }
-
-        //get e set da quantidade 
-        public int Quantidade
-        {
-            get{return quantidade;}
-
-            set{quantidade = value;}
-        }
+      this.prod = produto;
+      this.quantidade = quantidade;
     }
+
+
+    //get e set do produto
+    public Produto Prod
+    {
+      get { return prod; }
+
+      set { prod = value; }
+    }
+
+    //get e set da quantidade 
+    public int Quantidade
+    {
+      get { return quantidade; }
+
+      set { quantidade = value; }
+    }
+  }
 }
