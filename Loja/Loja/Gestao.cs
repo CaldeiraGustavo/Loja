@@ -9,14 +9,17 @@ namespace Loja
   class Gestao
   {
     private List<Vendas> lista_Vendas;
-    private Estoque estoque; 
+    private Estoque estoque;
     private IDictionary<Produto, int> Dic_Temp;
+    private double valorLiquidoFaturado;
+    private double valorBrutoFaturado;
 
     public Gestao(Estoque estoque, List<Vendas> vendas)
     {
       this.estoque = estoque;
       this.lista_Vendas = vendas;
-      this.Dic_Temp = Quant_Prod_Vendido();
+      this.Dic_Temp = this.Quant_Prod_Vendido();
+      this.ValorFaturado();
     }
 
     /// <summary>
@@ -98,31 +101,35 @@ namespace Loja
     /// <summary>
     /// Percorre todas as vendas e retorna o valor bruto faturado
     /// </summary>
-    public double ValorBrutoFaturado()
+    private void ValorFaturado()
     {
-      double soma = 0;
+      double soma_Bruto = 0;
+      double soma_Liquido = 0;
 
       foreach (Vendas venda in lista_Vendas)
       {
-        soma += venda.CalcularValorVenda();
-      }      
+        soma_Bruto += venda.CalcularValorVenda();
+        soma_Liquido += venda.CalcularValorLiquidoVenda();
+      }
 
-      return soma;
+      this.valorBrutoFaturado = soma_Bruto;
+      this.valorLiquidoFaturado = soma_Liquido;
     }
 
     /// <summary>
-    /// Percorre todas as vendas e retorna o valor liquido faturado
+    /// Retorna o valor Bruto Faturado
+    /// </summary>
+    public double ValorBrutoFaturado()
+    {
+      return this.valorBrutoFaturado;
+    }
+
+    /// <summary>
+    /// Retorna o valor Liquido Faturado
     /// </summary>    
     public double ValorLiquidoFaturado()
     {
-      double soma = 0;
-      
-      foreach (Vendas venda in lista_Vendas)
-      {
-        soma += venda.CalcularValorLiquidoVenda();
-      }
-
-      return soma;
+      return this.valorLiquidoFaturado;
     }
 
     /// <summary>
@@ -167,7 +174,7 @@ namespace Loja
     {
       this.estoque.ListarPedidos();
     }
-    
+
 
     //get e set para o Estoque
     public void setEstoque(Estoque estoque)
