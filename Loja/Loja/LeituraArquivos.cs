@@ -10,10 +10,9 @@ namespace Loja
   class LeituraArquivos
   {
     private Estoque estoque;
-    private int quantidade_vendas = 380;
-    private int quantidade_produtos = 40;
     private String nomeArquivoVendas;
     private String nomeArquivoProdutos;
+    private Arvore arvore_produtos;
 
     public LeituraArquivos(String nomeArquivoProdutos, String nomeArquivoVendas)
     {
@@ -22,11 +21,9 @@ namespace Loja
       estoque = new Estoque();
     }
 
-    //lê o arquivo e retorna um vetor de produtos
+    //lê o arquivo e retorna o Estoque
     public Estoque LeituraArquivoProduto()
     {
-      Produto[] produtos = new Produto[quantidade_produtos];
-
       String s;
       String[] aux;
       int i;
@@ -39,6 +36,7 @@ namespace Loja
 
         s = arquivoLeituraProdutos.ReadLine();
         i = 0;
+        this.arvore_produtos = new Arvore(null);
 
         while (s != null)
         {
@@ -48,25 +46,25 @@ namespace Loja
           switch (int.Parse(aux[1]))
           {
             case 1:
-              produtos[i] = new Bebida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+              this.arvore_produtos.Inserir(new Bebida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5])));
               break;
             case 2:
-              produtos[i] = new Comida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+              this.arvore_produtos.Inserir(new Comida(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5])));
               break;
             case 3:
-              produtos[i] = new MaterialEscritorio(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+              this.arvore_produtos.Inserir(new MaterialEscritorio(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5])));
               break;
             case 4:
-              produtos[i] = new UtensilioDomestico(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5]));
+              this.arvore_produtos.Inserir(new UtensilioDomestico(aux[0], double.Parse(aux[2]), double.Parse(aux[3]), int.Parse(aux[4]), int.Parse(aux[5])));
               break;
           }
-
 
           s = arquivoLeituraProdutos.ReadLine();
           i++;
         }
 
         arquivoLeituraProdutos.Close();
+
       }
 
       catch (FileNotFoundException ex)
@@ -79,14 +77,13 @@ namespace Loja
         throw ex;
       }
 
-      estoque.setProdutos(produtos);
       return estoque;
     }
 
-    //lê o arquivo e retorna um vetor de vendas
-    public Vendas[] LeituraArquivoVendas()
+    //lê o arquivo e retorna uma lista de vendas
+    public List<Vendas> LeituraArquivoVendas()
     {
-      Vendas[] vendas = new Vendas[quantidade_vendas];
+      List<Vendas> Lista_vendas = new List<Vendas>();
 
       String s;
       String[] aux, produtos;
@@ -114,15 +111,16 @@ namespace Loja
             s = arquivoLeituraVendas.ReadLine();
             produtos = s.Split(';');
 
-            int indice = this.indiceProduto(produtos[0]);
+            Produto produto_aux = arvore_produtos.Buscar(produtos[0]);
+
             //instancia um item passando o produto e a quantidade
-            itens[c] = new Itens(estoque.getProdutos()[indice], int.Parse(produtos[1]));
+            itens[c] = new Itens(produto_aux, int.Parse(produtos[1]));
 
             //chama o estoque passando o indice do produto e a quantidade vendida
-            estoque.Ativar(indice, int.Parse(produtos[1]));
+            estoque.Ativar(produto_aux, int.Parse(produtos[1]));
           }
 
-          vendas[i] = new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens);
+          Lista_vendas.Add(new Vendas(int.Parse(aux[0]), int.Parse(aux[1]), itens));
 
           s = arquivoLeituraVendas.ReadLine();
           i++;
@@ -141,21 +139,7 @@ namespace Loja
 
       arquivoLeituraVendas.Close();
 
-      return vendas;
-    }
-
-    //metodo que recebe como parametro o nome e retorna o indice do produto no estoque
-    private int indiceProduto(string nome)
-    {
-      //percore o vetor de produtos procurando pelo nome correspondente
-      for (int i = 0; i < estoque.getProdutos().Length; i++)
-      {
-        if (nome == estoque.getProdutos()[i].getNome())
-        {
-          return i;
-        }
-      }
-      return 0;
+      return Lista_vendas;
     }
 
   }

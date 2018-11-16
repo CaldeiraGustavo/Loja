@@ -12,13 +12,13 @@ namespace Loja
 
     public MaterialEscritorio(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo) : base(nome, margemLucro, precoCusto, estoqueAtual, estoqueMinimo)
     {
-      if (margemLucro <= 0.05)
+      if (margemLucro <= 0.1)
       {
-        this.margemLucro = 0.05;
+        this.margemLucro = 0.1;
       }
-      else if (margemLucro >= 0.5)
+      else if (margemLucro >= 0.3)
       {
-        this.margemLucro = 0.5;
+        this.margemLucro = 0.3;
       }
       else
       {

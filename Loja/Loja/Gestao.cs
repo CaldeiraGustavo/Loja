@@ -8,14 +8,14 @@ namespace Loja
 {
   class Gestao
   {
-    private Vendas[] venda;
-    private Estoque estoque; // dentro do estoque está o vetor de produtos
+    private List<Vendas> lista_Vendas;
+    private Estoque estoque; 
     private IDictionary<Produto, int> Dic_Temp;
 
-    public Gestao(Estoque estoque, Vendas[] vendas)
+    public Gestao(Estoque estoque, List<Vendas> vendas)
     {
       this.estoque = estoque;
-      this.venda = vendas;
+      this.lista_Vendas = vendas;
       this.Dic_Temp = Quant_Prod_Vendido();
     }
 
@@ -102,11 +102,10 @@ namespace Loja
     {
       double soma = 0;
 
-      //percore todo o vetor de vendas, somando o valor bruto da venda de cada um
-      for (int i = 0; i < venda.Length; i++)
+      foreach (Vendas venda in lista_Vendas)
       {
-        soma += venda[i].CalcularValorVenda();
-      }
+        soma += venda.CalcularValorVenda();
+      }      
 
       return soma;
     }
@@ -117,11 +116,10 @@ namespace Loja
     public double ValorLiquidoFaturado()
     {
       double soma = 0;
-
-      //percore todo o vetor de vendas, somando o valor liquido da venda de cada um
-      for (int i = 0; i < venda.Length; i++)
+      
+      foreach (Vendas venda in lista_Vendas)
       {
-        soma += venda[i].CalcularValorLiquidoVenda();
+        soma += venda.CalcularValorLiquidoVenda();
       }
 
       return soma;
@@ -134,10 +132,10 @@ namespace Loja
     {
       IDictionary<Produto, int> Dic_Produtos = new Dictionary<Produto, int>();
 
-      //percore todo o vetor de vendas
-      for (int i = 0; i < venda.Length; i++)
+      //percore toda a lista de vendas
+      foreach (Vendas venda in lista_Vendas)
       {
-        IDictionary<Produto, int> Dic_Temp = venda[i].Quant_Prod_Vendido();
+        IDictionary<Produto, int> Dic_Temp = venda.Quant_Prod_Vendido();
         foreach (Produto key in Dic_Temp.Keys)
         {
           int val;
@@ -169,14 +167,7 @@ namespace Loja
     {
       this.estoque.ListarPedidos();
     }
-
-    //get e set para o vetor de Vendas
-    public Vendas[] Vendas
-    {
-      get { return venda; }
-
-      set { venda = value; }
-    }
+    
 
     //get e set para o Estoque
     public void setEstoque(Estoque estoque)

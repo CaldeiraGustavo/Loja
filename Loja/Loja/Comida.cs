@@ -12,13 +12,13 @@ namespace Loja
 
     public Comida(string nome, double margemLucro, double precoCusto, int estoqueAtual, int estoqueMinimo) : base(nome, margemLucro, precoCusto, estoqueAtual, estoqueMinimo)
     {
-      if (margemLucro <= 0.2)
+      if (margemLucro <= 0.1)
+      {
+        this.margemLucro = 0.1;
+      }
+      else if (margemLucro >= 0.2)
       {
         this.margemLucro = 0.2;
-      }
-      else if (margemLucro >= 0.8)
-      {
-        this.margemLucro = 0.8;
       }
       else
       {
