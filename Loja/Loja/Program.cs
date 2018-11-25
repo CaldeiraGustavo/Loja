@@ -8,32 +8,32 @@ using System.IO;
 
 namespace Loja
 {
-  static class Program
-  {
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    static class Program
     {
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-      try
-      {
-        Application.Run(new InterfaceGrafica());
-      }
-      catch (FileNotFoundException)
-      {
-        MessageBox.Show("Arquivo não encontrado!");
+            try
+            {
+                Application.Run(new InterfaceGrafica());
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Arquivo não encontrado!");
 
-      }
-      catch (Exception)
-      {
-        MessageBox.Show("Algo de errado ocorreu com a leitura dos arquivos!");
-      }     
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo de errado ocorreu com a leitura dos arquivos!");
+            }
 
 
+        }
     }
-  }
 }

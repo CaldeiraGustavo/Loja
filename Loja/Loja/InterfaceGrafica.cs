@@ -11,65 +11,83 @@ using System.Windows.Forms;
 
 namespace Loja
 {
-  public partial class InterfaceGrafica : Form
-  {
-    static LeituraArquivos leitura;
-    //instancia a classe gestão passando o vetor de vendas e o estoque         
-
-    Gestao gestao;
-
-    public InterfaceGrafica()
+    public partial class InterfaceGrafica : Form
     {
-      InitializeComponent();
-      MessageBox.Show("Selecione o arquivo de produtos");
-      DialogResult produtos = openFileDialog1.ShowDialog();
-      MessageBox.Show("Selecione o arquivo de vendas");
-      DialogResult vendas = openFileDialog2.ShowDialog();
+        static LeituraArquivos leitura;
+        //instancia a classe gestão passando o vetor de vendas e o estoque         
 
-      leitura = new LeituraArquivos(openFileDialog1.FileName, openFileDialog2.FileName);
-      gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
-    }
+        Gestao gestao;
 
-    private void button1_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = true;
-      txtrep.Visible = false;
-      ProductList.Text = gestao.getEstoque().ListarPedidos();
-    }
+        public InterfaceGrafica()
+        {
+            InitializeComponent();
+            MessageBox.Show("Selecione o arquivo de produtos");
+            DialogResult produtos = openFileDialog1.ShowDialog();
+            MessageBox.Show("Selecione o arquivo de vendas");
+            DialogResult vendas = openFileDialog2.ShowDialog();
 
-    private void button4_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = false;
-      txtrep.Visible = true;
-      txtrep.Text = gestao.ProdutoMaisVendUnid();
-    }
+            leitura = new LeituraArquivos(openFileDialog1.FileName, openFileDialog2.FileName);
+            gestao = new Gestao(leitura.LeituraArquivoProduto(), leitura.LeituraArquivoVendas());
+        }
 
-    private void button3_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = false;
-      txtrep.Visible = true;
-      txtrep.Text = gestao.ProdutoMaiorFaturamento();
-    }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = true;
+            txtrep.Visible = false;
+            ProductList.Text = gestao.getEstoque().ListarPedidos();
+        }
 
-    private void button2_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = false;
-      txtrep.Visible = true;
-      txtrep.Text = gestao.ProdutoMaiorLucro();
-    }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = false;
+            txtrep.Visible = true;
+            txtrep.Text = gestao.ProdutoMaisVendUnid();
+        }
 
-    private void button5_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = false;
-      txtrep.Visible = true;
-      txtrep.Text = gestao.ValorLiquidoFaturado().ToString("c");
-    }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = false;
+            txtrep.Visible = true;
+            txtrep.Text = gestao.ProdutoMaiorFaturamento();
+        }
 
-    private void button6_Click(object sender, EventArgs e)
-    {
-      ProductList.Visible = false;
-      txtrep.Visible = true;
-      txtrep.Text = gestao.ValorBrutoFaturado().ToString("c");
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = false;
+            txtrep.Visible = true;
+            txtrep.Text = gestao.ProdutoMaiorLucro();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = false;
+            txtrep.Visible = true;
+            txtrep.Text = gestao.ValorLiquidoFaturado().ToString("c");
+        }
+
+        //Botão Valor Bruto Faturado
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = false;
+            txtrep.Visible = true;
+            txtrep.Text = gestao.ValorBrutoFaturado().ToString("c");
+        }
+
+        //Botão Listar Produtos
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = true;
+            txtrep.Visible = false;            
+            ProductList.Text = gestao.Listar_Produtos();
+        }
+
+        //Botão Ordenar
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ProductList.Visible = true;
+            txtrep.Visible = false;
+            gestao.Ordenar_Produtos();
+            ProductList.Text = gestao.Listar_Produtos();
+        }
     }
-  }
 }

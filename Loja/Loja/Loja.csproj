@@ -46,27 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArvoreProdutos.cs" />
-    <Compile Include="Bebida.cs" />
-    <Compile Include="Elemento.cs" />
+    <Compile Include="Produtos\ArvoreProdutos.cs" />
+    <Compile Include="Produtos\Categorias\Bebida.cs" />
+    <Compile Include="Produtos\Elemento.cs" />
+    <Compile Include="Ordenação\Elemento_QuickSort.cs" />
     <Compile Include="LeituraArquivos.cs" />
-    <Compile Include="Comida.cs" />
-    <Compile Include="Estoque.cs" />
+    <Compile Include="Produtos\Categorias\Comida.cs" />
+    <Compile Include="Estoque\Estoque.cs" />
     <Compile Include="InterfaceGrafica.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InterfaceGrafica.Designer.cs">
       <DependentUpon>InterfaceGrafica.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestao.cs" />
-    <Compile Include="Itens.cs" />
-    <Compile Include="MaterialEscritorio.cs" />
-    <Compile Include="PedidoEstoque.cs" />
-    <Compile Include="Produto.cs" />
+    <Compile Include="Gestão\Gestao.cs" />
+    <Compile Include="Gestão\Itens.cs" />
+    <Compile Include="Produtos\Categorias\MaterialEscritorio.cs" />
+    <Compile Include="Estoque\PedidoEstoque.cs" />
+    <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtensilioDomestico.cs" />
-    <Compile Include="Vendas.cs" />
+    <Compile Include="Ordenação\QuickSort.cs" />
+    <Compile Include="Produtos\Categorias\UtensilioDomestico.cs" />
+    <Compile Include="Gestão\Vendas.cs" />
     <EmbeddedResource Include="InterfaceGrafica.resx">
       <DependentUpon>InterfaceGrafica.cs</DependentUpon>
     </EmbeddedResource>
