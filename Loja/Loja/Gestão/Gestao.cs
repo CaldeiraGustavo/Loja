@@ -67,8 +67,6 @@ namespace Loja
             return lista;
         }
 
-
-
         /// <summary>
         /// Busca qual foi o produto mais vendido em unidades
         /// </summary>
