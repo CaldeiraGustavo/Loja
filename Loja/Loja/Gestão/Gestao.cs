@@ -220,9 +220,9 @@ namespace Loja
         /// <summary>
         /// Lista os pedidos de reposição de estoque
         /// </summary> 
-        public void ListarPedidosReposiçãoEstoque()
+        public void ListarPedidosReposiçãoEstoque(int pagina)
         {
-            this.estoque.ListarPedidos();
+            this.estoque.ListarPedidos(pagina);
         }
 
 

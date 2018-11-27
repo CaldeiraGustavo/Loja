@@ -30,5 +30,9 @@ namespace Loja
             return this.prod.getNome() + ":" + this.Quantidade + ":" + this.ValorPedido.ToString("c") + ":Concluido";
         }
 
+    public override string ToString()
+    {
+      return this.prod.getNome() + ":" + this.Quantidade + ":" + this.ValorPedido.ToString("c") + ":Concluido";
     }
+  }
 }
