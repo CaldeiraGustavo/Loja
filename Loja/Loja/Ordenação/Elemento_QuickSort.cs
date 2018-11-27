@@ -22,7 +22,7 @@ namespace Loja
         /// </summary>
         public string Imprimir()
         {
-            return this.produto.getNome() + "   " + this.Faturamento_Bruto.ToString("c") + "\n";
+            return this.produto.getNome() + ":" + this.Faturamento_Bruto.ToString("c") ;
         }        
 
     }

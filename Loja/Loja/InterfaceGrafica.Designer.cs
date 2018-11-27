@@ -33,7 +33,6 @@
             this.lblOpercao = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.ProductList = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -43,6 +42,16 @@
             this.txtrep = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.dtvReposicao = new System.Windows.Forms.DataGridView();
+            this.coluna_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna_quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna_pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtvListarProdutos = new System.Windows.Forms.DataGridView();
+            this.coluna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLUNA2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvReposicao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvListarProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOpercao
@@ -72,15 +81,6 @@
             this.button1.Text = "Pedidos Reposição";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ProductList
-            // 
-            this.ProductList.Location = new System.Drawing.Point(407, 108);
-            this.ProductList.Multiline = true;
-            this.ProductList.Name = "ProductList";
-            this.ProductList.Size = new System.Drawing.Size(727, 480);
-            this.ProductList.TabIndex = 176;
-            this.ProductList.Visible = false;
             // 
             // button2
             // 
@@ -151,6 +151,7 @@
             this.txtrep.Size = new System.Drawing.Size(163, 38);
             this.txtrep.TabIndex = 182;
             this.txtrep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtrep.Visible = false;
             // 
             // button7
             // 
@@ -174,12 +175,75 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // dtvReposicao
+            // 
+            this.dtvReposicao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtvReposicao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.coluna_nome,
+            this.coluna_quantidade,
+            this.coluna_pedido,
+            this.coluna_status});
+            this.dtvReposicao.Location = new System.Drawing.Point(398, 94);
+            this.dtvReposicao.Name = "dtvReposicao";
+            this.dtvReposicao.Size = new System.Drawing.Size(572, 480);
+            this.dtvReposicao.TabIndex = 185;
+            this.dtvReposicao.Visible = false;
+            // 
+            // coluna_nome
+            // 
+            this.coluna_nome.HeaderText = "NOME";
+            this.coluna_nome.Name = "coluna_nome";
+            this.coluna_nome.Width = 200;
+            // 
+            // coluna_quantidade
+            // 
+            this.coluna_quantidade.HeaderText = "QUANTIDADE";
+            this.coluna_quantidade.Name = "coluna_quantidade";
+            // 
+            // coluna_pedido
+            // 
+            this.coluna_pedido.HeaderText = "VALOR PEDIDO";
+            this.coluna_pedido.Name = "coluna_pedido";
+            this.coluna_pedido.Width = 130;
+            // 
+            // coluna_status
+            // 
+            this.coluna_status.HeaderText = "STATUS";
+            this.coluna_status.Name = "coluna_status";
+            // 
+            // dtvListarProdutos
+            // 
+            this.dtvListarProdutos.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dtvListarProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtvListarProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.coluna1,
+            this.COLUNA2});
+            this.dtvListarProdutos.Location = new System.Drawing.Point(398, 94);
+            this.dtvListarProdutos.Name = "dtvListarProdutos";
+            this.dtvListarProdutos.Size = new System.Drawing.Size(390, 480);
+            this.dtvListarProdutos.TabIndex = 186;
+            this.dtvListarProdutos.Visible = false;
+            // 
+            // coluna1
+            // 
+            this.coluna1.HeaderText = "NOME";
+            this.coluna1.Name = "coluna1";
+            this.coluna1.Width = 200;
+            // 
+            // COLUNA2
+            // 
+            this.COLUNA2.HeaderText = "VALOR";
+            this.COLUNA2.Name = "COLUNA2";
+            this.COLUNA2.Width = 150;
+            // 
             // InterfaceGrafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Loja.Properties.Resources._69036_gestao_de_vendas_utilizando_o_g_suite_para_vender_mais_1144x563;
             this.ClientSize = new System.Drawing.Size(1146, 600);
+            this.Controls.Add(this.dtvListarProdutos);
+            this.Controls.Add(this.dtvReposicao);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.txtrep);
@@ -188,11 +252,12 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.ProductList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblOpercao);
             this.Name = "InterfaceGrafica";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dtvReposicao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvListarProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +268,6 @@
         private System.Windows.Forms.Label lblOpercao;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox ProductList;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -213,6 +277,14 @@
         private System.Windows.Forms.TextBox txtrep;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridView dtvReposicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna_nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna_quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna_pedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna_status;
+        private System.Windows.Forms.DataGridView dtvListarProdutos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLUNA2;
     }
 }
 

@@ -9,7 +9,7 @@ namespace Loja
     class Estoque
     {
         private List<PedidoEstoque> Listapedidos = new List<PedidoEstoque>(); // a cada vez que é feito um pedido de reposição 
-
+        
         /// <summary>
         /// Método inicial que recebe um produto e a quantidade vendida para prosseguir
         /// com as validações necessárias
@@ -59,12 +59,16 @@ namespace Loja
             this.Listapedidos.Add(temp);
         }
 
-        public string ListarPedidos()
+        public List<string> ListarPedidos()
         {
-            string lista = "";
+
+            List<string> lista = new List<string>();
             for (int i = 0; i < Listapedidos.Count; i++)
             {
-                lista += Listapedidos[i].ListarPedido();
+                
+                lista.Add(Listapedidos[i].ListarPedido());
+                
+              
             }
             return lista;
         }
