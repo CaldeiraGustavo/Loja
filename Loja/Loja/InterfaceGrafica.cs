@@ -109,7 +109,7 @@ namespace Loja
       button9.Visible = false;      
       txtrep.Visible = false;
 
-      List<string> lista = gestao.Listar_Produtos();
+      List<Elemento_QuickSort> lista = gestao.Listar_Produtos();
       dtvListarProdutos.Visible = true;
       dtvReposicao.Visible = false;
       listarProdutosGrid(lista);
@@ -123,7 +123,7 @@ namespace Loja
       txtrep.Visible = false;
 
       gestao.Ordenar_Produtos();
-      List<string> lista = gestao.Listar_Produtos();
+      List<Elemento_QuickSort> lista = gestao.Listar_Produtos();
       dtvListarProdutos.Visible = true;
       dtvReposicao.Visible = false;
       listarProdutosGrid(lista);
@@ -139,12 +139,12 @@ namespace Loja
       }
 
     }
-    private void listarProdutosGrid(List<string> lista)
+    private void listarProdutosGrid(List<Elemento_QuickSort> lista)
     {
       dtvListarProdutos.Rows.Clear();
       for (int i = 0; i < lista.Count; i++)
       {
-        string linha = lista[i];
+        string linha = lista[i].ToString();
         string[] dados = linha.Split(':');
         dtvListarProdutos.Rows.Add(dados[0], dados[1]);
       }

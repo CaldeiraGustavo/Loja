@@ -55,13 +55,13 @@ namespace Loja
             QuickSort quickSort = new QuickSort(this.elementos);
         }
 
-        public List<string> Listar_Produtos()
+        public List<Elemento_QuickSort> Listar_Produtos()
         {
-            List<string> lista = new List<string>();
+            List<Elemento_QuickSort> lista = new List<Elemento_QuickSort>();
 
             foreach (Elemento_QuickSort elem in this.elementos)
             {
-                lista.Add( elem.Imprimir());
+                lista.Add(elem);
             }
 
             return lista;

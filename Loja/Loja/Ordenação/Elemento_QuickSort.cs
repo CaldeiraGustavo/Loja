@@ -6,24 +6,21 @@ using System.Threading.Tasks;
 
 namespace Loja
 {
-    class Elemento_QuickSort
+  class Elemento_QuickSort
+  {
+    public Produto produto { get; private set; }
+    public double Faturamento_Bruto { get; private set; }
+
+    public Elemento_QuickSort(Produto prod, double valor)
     {
-        public Produto produto { get; private set; }
-        public double Faturamento_Bruto { get; private set; }
+      this.produto = prod;
+      this.Faturamento_Bruto = valor;
+    }    
 
-        public Elemento_QuickSort(Produto prod, double valor)
-        {
-            this.produto = prod;
-            this.Faturamento_Bruto = valor;
-        }
-
-        /// <summary>
-        /// Método para Imprimir um Produto e seu faturamento Bruto
-        /// </summary>
-        public string Imprimir()
-        {
-            return this.produto.getNome() + ":" + this.Faturamento_Bruto.ToString("c") ;
-        }        
-
+    public override string ToString()
+    {
+      return this.produto.getNome() + ":" + this.Faturamento_Bruto.ToString("c");
     }
+
+  }
 }
